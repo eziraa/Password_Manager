@@ -33,13 +33,14 @@ def generatePassword():
 
 
 def is_valid_inputs(website, email, password):
-    if website == "":
+    if website.strip() == "":
         messagebox.showwarning(title="Warning", message="The website field is empty")
+
         return False
-    elif email == "":
+    elif email.strip() == "":
         messagebox.showwarning(title="Warning", message="The email field is empty")
         return False
-    elif password == "":
+    elif password.strip() == "":
         messagebox.showwarning(title="Warning", message="The password field is empty")
         return False
     else:
@@ -80,7 +81,7 @@ def find_password():
         with open("data.json", "r") as file:
             data = json.load(file)
     except FileNotFoundError:
-        messagebox.showwarning(title="Errno", message="There is no data file found")
+        messagebox.showwarning(title="Warning", message="There is no data file found")
     else:
         try:
             messagebox.showinfo(title=website,
